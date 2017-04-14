@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db_blog@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="db_blog">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="innovate"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="seckill"/>
+    <schema id="8" parent="1" name="shiro"/>
+    <schema id="9" parent="1" name="shop"/>
+    <schema id="10" parent="1" name="skill"/>
+    <schema id="11" parent="1" name="sys"/>
+    <schema id="12" parent="1" name="Test"/>
+    <table id="13" parent="2" name="t_blogger"/>
+    <table id="14" parent="2" name="t_blogtype"/>
+    <column id="15" parent="13" name="id">
+      <Position>1</Position>
+      <Comment>博主id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="13" name="username">
+      <Position>2</Position>
+      <Comment>博主姓名</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="13" name="password">
+      <Position>3</Position>
+      <Comment>博主密码</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="13" name="profile">
+      <Position>4</Position>
+      <Comment>博主信息</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="19" parent="13" name="nickname">
+      <Position>5</Position>
+      <Comment>博主昵称</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="20" parent="13" name="sign">
+      <Position>6</Position>
+      <Comment>博主签名</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="21" parent="13" name="imagename">
+      <Position>7</Position>
+      <Comment>博主头像路径</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="22" parent="13" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="14" name="id">
+      <Position>1</Position>
+      <Comment>博客id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="14" name="type_name">
+      <Position>2</Position>
+      <Comment>博客类别</Comment>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="25" parent="14" name="order_num">
+      <Position>3</Position>
+      <Comment>博客排序</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="26" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
