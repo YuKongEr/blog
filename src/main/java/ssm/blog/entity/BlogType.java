@@ -14,6 +14,23 @@ public class BlogType implements Serializable{
     private Integer id;
     private String typeName;
     private Integer orderNum;
+    private Integer blogCount;
+
+    public BlogType() {
+    }
+
+    public BlogType(Integer id, String typeName, Integer orderNum, Integer blogCount) {
+        this.id = id;
+        this.typeName = typeName;
+        this.orderNum = orderNum;
+        this.blogCount = blogCount;
+    }
+
+    public BlogType(String typeName, Integer orderNum, Integer blogCount) {
+        this.typeName = typeName;
+        this.orderNum = orderNum;
+        this.blogCount = blogCount;
+    }
 
     public BlogType(Integer id, String typeName, Integer orderNum) {
         this.id = id;
@@ -50,12 +67,21 @@ public class BlogType implements Serializable{
         this.orderNum = orderNum;
     }
 
+    public Integer getBlogCount() {
+        return blogCount;
+    }
+
+    public void setBlogCount(Integer blogCount) {
+        this.blogCount = blogCount;
+    }
+
     @Override
     public String toString() {
         return "BlogType{" +
                 "id=" + id +
                 ", typeName='" + typeName + '\'' +
                 ", orderNum=" + orderNum +
+                ", blogCount=" + blogCount +
                 '}';
     }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * Created by xp on 2017/4/14.
+ *
  * @author xp
  * @Description 博客类别dao
  */
@@ -17,6 +18,7 @@ public interface BlogTypeDao {
 
     /**
      * 添加博客类别信息
+     *
      * @param blogType
      * @return
      */
@@ -24,6 +26,7 @@ public interface BlogTypeDao {
 
     /**
      * 删除博客类别信息
+     *
      * @param id
      * @return
      */
@@ -31,6 +34,7 @@ public interface BlogTypeDao {
 
     /**
      * 更新博客类别信息
+     *
      * @param blogType
      * @return
      */
@@ -38,6 +42,7 @@ public interface BlogTypeDao {
 
     /**
      * 根据id查询博客类别信息
+     *
      * @param id
      * @return
      */
@@ -45,6 +50,7 @@ public interface BlogTypeDao {
 
     /**
      * 分页查询博客类别信息
+     *
      * @param start
      * @param end
      * @return
@@ -53,8 +59,13 @@ public interface BlogTypeDao {
 
     /**
      * 查询总记录数
+     *
      * @return
      */
     Long getTotal();
 
+    /**
+     * 获取博客类别信息
+     */
+    public List<BlogType> getBlogTypeData();
 }

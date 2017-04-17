@@ -14,6 +14,9 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>ssm.blog.listener.InitBloggerData</listener-class>
+    </listener>
     <!--spring mvc核心servlet-->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>

@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import ssm.blog.entity.BlogType;
 import ssm.blog.entity.PageBean;
 
+import java.util.List;
+
 /**
  * Created by xp on 2017/4/14.
  * @author xp
@@ -25,4 +27,6 @@ public interface BlogTypeService {
 
     // 删除博客类别
     public Integer deleteBlogType(Integer id);
+
+    public List<BlogType> getBlogTypeData();
 }

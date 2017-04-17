@@ -1655,7 +1655,7 @@ a:hover.pagination-link {
 .searchbox {
   display: inline-block;
   white-space: nowrap;
-  margin: 0;
+  margin-top: 3px;
   padding: 0;
   border-width: 1px;
   border-style: solid;
