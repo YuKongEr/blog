@@ -29,10 +29,13 @@ public class BlogServiceImpl implements BlogService {
 
 	public PageBean<Blog> listBlog(String title, PageBean<Blog> pageBean) {
 		Map<String,Object> map = new HashMap<String,Object>();
+		//设置查询条件
 		map.put("title",title);
 		map.put("start",pageBean.getStart());
 		map.put("end",pageBean.getEnd());
+		//把分页结果放入pageBean
 		pageBean.setResult(blogDao.listBlog(map));
+		//总记录放入pageBean
 		pageBean.setTotal(blogDao.getTotal(title));
 		return pageBean;
 	}

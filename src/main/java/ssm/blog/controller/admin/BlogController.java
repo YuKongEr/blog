@@ -47,15 +47,21 @@ public class BlogController {
 
 		pageBean = blogService.listBlog(s_blog.getTitle(),pageBean);
 
-		
+		//创建json对象
 		JSONObject result = new JSONObject();
+		//设置json序列化日期格式
 		JSON.DEFFAULT_DATE_FORMAT="yyyy-MM-dd";
+		//禁止对象循环引用
+		//使用默认日期格式化
 		String jsonStr = JSONObject.toJSONString(pageBean.getResult(),
 				SerializerFeature.DisableCircularReferenceDetect,
 				SerializerFeature.WriteDateUseDateFormat);
+		//得到json数组
 		JSONArray array = JSON.parseArray(jsonStr);
+		//把结果放入json
 		result.put("rows", array);
 		result.put("total", pageBean.getTotal());
+		//返回
 		ResponseUtil.write(response, result);
 		return null;
 	}
