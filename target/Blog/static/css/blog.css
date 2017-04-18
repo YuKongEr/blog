@@ -1,0 +1,168 @@
+.blog{
+	font-size: 35px;
+	color: #708090;
+}
+
+.container {
+	width: 1400px;
+}
+
+.data_list{
+	border: 1px solid #E5E5E5;
+	padding: 10px;
+	background-color: #FDFDFD;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.data_list .data_list_title{
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #E5E5E5;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+
+.data_list .data_list_title img{
+	margin-top: 3px;
+	vertical-align: top;
+}
+
+.data_list .datas ul {
+	list-style-type: none;
+	padding-left: 15px;
+}
+
+.data_list .datas ul li {
+	margin-top: 10px;
+}
+
+.data_list .data_list_title .datas{
+	padding: 5px;
+}
+
+.datas .title {
+	display:block;
+	line-height: 1.5;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	padding-bottom: 10px;
+	font:18px 'microsoft yahei';
+}
+
+
+.datas .title a{
+	color: #800040;	
+	border-bottom: 1px dashed #ddd;
+	margin: 0 10px;
+}
+
+.datas .summary{
+	display:block;	
+	line-height: 19.5px;
+	padding-top: 5px;
+	color: #666;
+	font-size: 14px;
+	margin: -10px 0 10px 0;
+}
+
+.datas .img{
+	display:block;
+	clear:both;
+}
+
+.datas img{
+	padding:10px;
+	padding-left:0px;
+	max-height: 150px;
+	max-width:150px;
+}
+
+.datas .info{
+	display:block;
+	font-family: microsoft yahei, Verdana, Arial, Helvetica, sans-serif;
+	line-height: 18px;
+	float: right;
+	font-size: 12px;
+	color: #33a5ba;
+}
+
+.data_list .user_image{
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.data_list .user_image img{
+	padding-top:10px;
+	width: 200px;;
+	height: 250px;;
+}
+
+.data_list .nickName , .data_list .visitNum,.data_list .userSign{
+	text-align: center;
+	color: #666;
+	font-size: 14px;
+	padding-bottom: 2px;
+	padding-top: 4px;
+}
+
+.footer font{
+	font-size: 10px;
+	color: #666;
+}
+
+.data_list .blog_title{
+	margin-top:30px;
+	text-align: center;
+}
+
+.data_list .blog_info{
+	margin-top: 30px;
+	color: #666;
+	text-align: center;
+	
+}
+
+.data_list .blog_content{
+	margin-top:50px;
+	padding-bottom: 30px;
+}
+
+.data_list .commentDatas{
+	padding: 10px;
+}
+
+.data_list .commentDatas .comment,.data_list .commentDatas .otherComment{
+	margin-top:10px;
+	margin-bottom: 5px;
+	padding-bottom:15px;
+	border-bottom: 1px dotted gray;
+}
+
+.data_list .commentDatas .comment font, .data_list .commentDatas .otherComment font{
+	font-weight: bold;
+}
+
+.data_list .commentDatas .otherComment{
+	display: none;
+}
+
+.data_list .publish_comment{
+	padding-top: 10px;
+	padding-bottom: 50px;
+}
+
+.data_list .publish_comment .publishButton{
+	padding-top:10px;
+	float: right;
+}
+
+
+.data_list .verCode{
+	padding-top:10px;
+	padding-left:10px;
+	float: left;
+}
+
+.data_list .search{
+	padding: 5px;
+}

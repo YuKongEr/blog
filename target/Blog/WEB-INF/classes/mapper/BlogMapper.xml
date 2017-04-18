@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.blog.dao.BlogDao">
+
+	<resultMap type="Blog" id="BlogResult">
+		<id property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="summary" column="summary"/>
+		<result property="releaseDate" column="releaseDate"/>
+		<result property="clickHit" column="clickHit"/>
+		<result property="replyHit" column="replyHit"/>
+		<result property="content" column="content"/>
+		<result property="keyWord" column="keyWord"/>
+		
+		<association property="blogType" column="type_id" select="ssm.blog.dao.BlogTypeDao.getById">
+		</association>
+	</resultMap>
+	
+
+	
+	<select id="listBlog" parameterType="Map" resultMap="BlogResult">
+		 SELECT * FROM t_blog 
+		 <where>
+			<if test="title!=null and title!=''">
+		 		and title like "%"#{title}"%"
+		 	</if>
+		 </where>
+		 ORDER BY releaseDate DESC
+		 <if test="start!=null and pageSize!=null">
+		 	limit #{start},#{end}
+		 </if>
+	</select>
+
+	<select id="getTotal"  resultType="Long">
+		SELECT COUNT(*) FROM t_blog
+		<where>
+			<if test="_parameter!=null and _parameter!=''">
+				and title like "%"#{_parameter}"%"
+			</if>
+		</where>
+	</select>
+
+	
+	<select id="getBlogByTypeId" parameterType="Integer" resultType="Integer">
+		select count(*) from t_blog where type_id=#{typeId}
+	</select>
+
+</mapper> 
