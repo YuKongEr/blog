@@ -19,6 +19,9 @@
 		background-color: #F8F8FF;
 		font-family: microsoft yahei;
 	}
+	.container{
+		width: 1200px;
+	}
 </style>
 </head>
 
@@ -26,7 +29,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<div class="blog"><strong>倪升武的博客</strong></div>
+				<div class="blog"><strong>熊平的博客</strong></div>
 			</div>
 			<div class="col-md-8">
 				<iframe style="float:right" width="420" scrolling="no" height="60" frameborder="0"
@@ -60,7 +63,9 @@
 				</nav>
 			</div>
 		</div>
-		
+		<script type="application/javascript">
+			alert(${blogger.imageName})
+		</script>
 		<div class="row">	
 		  <div class="col-md-3">
 		  	<div class="data_list">
@@ -69,9 +74,9 @@
 					博主信息
 				</div>
 				<div class="user_image">
-					<img src="${pageContext.request.contextPath}/static/userImages/${blogger.imagename}"/>
+					<img src="${pageContext.request.contextPath}/static/userImages/${blogger.imageName}"/>
 				</div>
-				<div class="nickName">${blogger.nickname }</div>
+				<div class="nickName">${blogger.nickName }</div>
 				<div class="userSign">${blogger.sign }</div>
 			</div>	
 			
@@ -111,7 +116,7 @@
 				<div class="datas">
 					<ul>						
 						<c:forEach items="${linkList }" var="link">
-							<li><span><a href="${link.linkurl }" target="_blank">${link.linkname }</a></span></li>
+							<li><span><a href="${link.linkUrl }" target="_blank">${link.linkName }</a></span></li>
 						</c:forEach>											
 					</ul>
 				</div>
@@ -203,7 +208,7 @@
 		<div class="row">
 			<div class="col-md-12" >
 				<div class="footer" align="center" style="padding-top: 120px" >
-					<font>Copyright © 2012-2016 倪升武SSM个人博客系统 版权所有</font>
+					<font>Copyright © 2012-2017 熊平SSM个人博客系统 版权所有</font>
 					  
 				</div>
 			</div>			

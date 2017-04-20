@@ -21,30 +21,82 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	<select id="listBlog" parameterType="Map" resultMap="BlogResult">
-		 SELECT * FROM t_blog 
-		 <where>
-			<if test="title!=null and title!=''">
-		 		and title like "%"#{title}"%"
-		 	</if>
-		 </where>
-		 ORDER BY releaseDate DESC
-		 <if test="start!=null and pageSize!=null">
-		 	limit #{start},#{end}
-		 </if>
+        SELECT * FROM t_blog
+        <where>
+            <if test="title!=null and title!=''">
+                and title like "%"#{title}"%"
+            </if>
+            <if test="typeId!=null and typeId!=''">
+                and type_id=#{typeId}
+            </if>
+            <if test="releaseDateStr!=null and releaseDateStr!=''">
+                and DATE_FORMAT(releaseDate,'%Y年%m月')=#{releaseDateStr}
+            </if>
+        </where>
+        ORDER BY releaseDate DESC
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{end}
+        </if>
 	</select>
 
-	<select id="getTotal"  resultType="Long">
-		SELECT COUNT(*) FROM t_blog
-		<where>
-			<if test="_parameter!=null and _parameter!=''">
-				and title like "%"#{_parameter}"%"
-			</if>
-		</where>
-	</select>
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        SELECT COUNT(*) FROM t_blog
+        <where>
+            <if test="title!=null and title!=''">
+                and title like "%"#{title}"%"
+            </if>
+            <if test="typeId!=null and typeId!=''">
+                and type_id=#{typeId}
+            </if>
+            <if test="releaseDateStr!=null and releaseDateStr!=''">
+                and DATE_FORMAT(releaseDate,'%Y年%m月')=#{releaseDateStr}
+            </if>
+        </where>
+    </select>
 
 	
 	<select id="getBlogByTypeId" parameterType="Integer" resultType="Integer">
 		select count(*) from t_blog where type_id=#{typeId}
 	</select>
 
+	<insert id="saveBlog" parameterType="Blog">
+		insert into t_blog VALUES (NULL ,#{title},#{summary},now(),0,0,#{content},#{keyWord},#{blogType.id})
+	</insert>
+
+	<update id="updateBlog" parameterType="Blog">
+		update t_blog
+        <set>
+            <if test="title!=null and title!=''">
+                title=#{title},
+            </if>
+            <if test="summary!=null and summary!=''">
+                summary=#{summary},
+            </if>
+            <if test="content!=null and content!=''">
+                content=#{content},
+            </if>
+            <if test="blogType.id!=null">
+                type_id=#{blogType.id},
+            </if>
+            <if test="clickHit!=null">
+                clickHit=#{clickHit},
+            </if>
+            <if test="replyHit!=null">
+                replyHit=#{replyHit},
+            </if>
+            <if test="keyWord!=null and keyWord!=''">
+                keyWord=#{keyWord},
+            </if>
+        </set>
+        where id=#{id}
+	</update>
+
+    <delete id="deleteBlog" parameterType="java.lang.Integer">
+        DELETE FROM t_blog
+        where id=#{id}
+    </delete>
+
+    <select id="getById" parameterType="java.lang.Integer" resultMap="BlogResult">
+        SELECT * from t_blog where id=#{id}
+    </select>
 </mapper> 

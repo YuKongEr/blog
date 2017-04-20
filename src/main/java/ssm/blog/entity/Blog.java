@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @Description ²©¿ÍÊµÌå
+ * @Description åšå®¢å®ä½“
  * @author xp
  *
  */
@@ -18,14 +18,14 @@ public class Blog {
 	private Integer clickHit;
 	private Integer replyHit;
 	private String content;
-	private String contentNoTag; //²»´ø±êÇ©µÄ²©¿ÍÄÚÈİ£¬ÓÃÓÚLuceneË÷ÒıÖĞ
-	private String keyWord; //¹Ø¼ü×Ö£¬ÓÃ¿Õ¸ñ¸ô¿ª
+	private String contentNoTag; //ä¸å¸¦æ ‡ç­¾çš„åšå®¢å†…å®¹ï¼Œç”¨äºLuceneç´¢å¼•ä¸­
+	private String keyWord; //å…³é”®å­—ï¼Œç”¨ç©ºæ ¼éš”å¼€
 	
-	private BlogType blogType; //²©¿ÍÀàĞÍ
-	private Integer blogCount; //²©¿ÍÊıÁ¿£¬·Ç²©¿ÍÊµ¼ÊÊôĞÔ£¬ÓÃÓÚ¸ù¾İ·¢²¼ÈÕÆÚ¹éµµ²éÑ¯
-	private String releaseDateStr; //·¢²¼ÈÕÆÚµÄ×Ö·û´®£¬Ö»È¡ÄêÔÂ
+	private BlogType blogType; //åšå®¢ç±»å‹
+	private Integer blogCount; //åšå®¢æ•°é‡ï¼Œéåšå®¢å®é™…å±æ€§ï¼Œç”¨äºæ ¹æ®å‘å¸ƒæ—¥æœŸå½’æ¡£æŸ¥è¯¢
+	private String releaseDateStr; //å‘å¸ƒæ—¥æœŸçš„å­—ç¬¦ä¸²ï¼Œåªå–å¹´æœˆ
 	
-	private List<String> imageList = new LinkedList<String>();//²©¿ÍÀï´æµÄÍ¼Æ¬£¬Ö÷ÒªÓÃÓÚÕ¹Ê¾ËõÂÔÍ¼
+	private List<String> imageList = new LinkedList<String>();//åšå®¢é‡Œå­˜çš„å›¾ç‰‡ï¼Œä¸»è¦ç”¨äºå±•ç¤ºç¼©ç•¥å›¾
 
 	public Integer getId() {
 		return id;

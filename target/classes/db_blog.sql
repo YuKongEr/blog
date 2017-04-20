@@ -24,5 +24,17 @@ CREATE TABLE `t_blogtype` (
 ) ENGINE=INNODB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 
-
-
+CREATE TABLE `t_blog` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '博客类型',
+  `title` VARCHAR(200) NOT NULL COMMENT '博客题目',
+  `summary` VARCHAR(400) DEFAULT NULL COMMENT '博客摘要',
+  `releaseDate` DATETIME DEFAULT NULL COMMENT '发布日期',
+  `clickHit` INT(11) DEFAULT NULL COMMENT '评论次数',
+  `replyHit` INT(11) DEFAULT NULL COMMENT '回复次数',
+  `content` TEXT COMMENT '博客内容',
+  `keyWord` VARCHAR(200) DEFAULT NULL COMMENT '关键字',
+  `type_id` INT(11) DEFAULT NULL COMMENT '外键关联博客类别',
+  PRIMARY KEY (`id`),
+  KEY `type_id` (`type_id`),
+  CONSTRAINT `t_blog_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `t_blogtype` (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;

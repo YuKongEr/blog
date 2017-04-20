@@ -6,19 +6,30 @@ import java.util.Map;
 import ssm.blog.entity.Blog;
 
 /**
- * @Description ²©¿ÍDao½Ó¿Ú
+ * @Description åšå®¢Daoæ¥å£
  * @author xp
  *
  */
 public interface BlogDao {
 
 
-	// ·ÖÒ³²éÑ¯²©¿Í
+	// åˆ†é¡µæŸ¥è¯¢åšå®¢
 	public List<Blog> listBlog(Map<String, Object> map);
 
-	// »ñÈ¡×Ü¼ÇÂ¼Êı
-	public Long getTotal(String title);
+	// è·å–æ€»è®°å½•æ•°
+	public Long getTotal(Map<String ,Object> map);
 
-	// ¸ù¾İ²©¿ÍÀàĞÍµÄid²éÑ¯¸ÃÀàĞÍÏÂµÄ²©¿ÍÊıÁ¿
+	// æ ¹æ®åšå®¢ç±»å‹çš„idæŸ¥è¯¢è¯¥ç±»å‹ä¸‹çš„åšå®¢æ•°é‡
 	public Integer getBlogByTypeId(Integer typeId);
+
+	//æ·»åŠ åšå®¢
+	public Integer saveBlog(Blog blog);
+
+	//æ›´æ–°åšå®¢
+	public Integer updateBlog(Blog blog);
+
+	public Integer deleteBlog(Integer id);
+
+	//é€šè¿‡idè·å–åšå®¢
+	public Blog getById(Integer id);
 }

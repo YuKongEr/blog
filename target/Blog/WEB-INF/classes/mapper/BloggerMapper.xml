@@ -25,4 +25,29 @@
     <select id="getBloggerData" resultMap="BloggerResult">
         select <include refid="BloggerColumns"/> from t_blogger where id = 1
     </select>
+    <select id="getBloggerByName" parameterType="java.lang.String" resultMap="BloggerResult">
+        SELECT <include refid="BloggerColumns"/> from t_blogger
+        where username=#{username}
+    </select>
+    <update id="updateBlogger" parameterType="Blogger">
+        UPDATE t_blogger
+        <set>
+            <if test="nickName!=null and nickName!=''">
+                nickname=#{nickName},
+            </if>
+            <if test="password!=null and password!=''">
+                password=#{password},
+            </if>
+            <if test="sign!=null and sign!=''">
+                sign=#{sign},
+            </if>
+            <if test="profile!=null and profile!=''">
+                profile=#{profile},
+            </if>
+            <if test="imageName!=null and imageName!=''">
+                imagename=#{imageName},
+            </if>
+        </set>
+        where id=1
+    </update>
 </mapper>

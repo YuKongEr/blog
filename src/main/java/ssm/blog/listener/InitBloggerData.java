@@ -12,8 +12,14 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 
+import ssm.blog.dao.BlogDao;
 import ssm.blog.entity.BlogType;
+import ssm.blog.entity.Blogger;
+import ssm.blog.entity.Link;
+import ssm.blog.service.BlogService;
 import ssm.blog.service.BlogTypeService;
+import ssm.blog.service.BloggerService;
+import ssm.blog.service.LinkService;
 
 @Component
 public class InitBloggerData implements ServletContextListener, ApplicationContextAware {
@@ -22,12 +28,28 @@ public class InitBloggerData implements ServletContextListener, ApplicationConte
 	
 	public void contextInitialized(ServletContextEvent sce) {
 		System.out.println(applicationContext);
-		//�Ȼ�ȡservlet������
+		//先获取servlet上下文
 		ServletContext application = sce.getServletContext();
-		//ͬ�ϣ���ȡ���������Ϣ
-		BlogTypeService blogTypeService = (BlogTypeService) applicationContext.getBean(BlogTypeService.class);
+		//同上，获取博客类别信息service
+		BlogTypeService blogTypeService = applicationContext.getBean(BlogTypeService.class);
+		//获取博主信息service
+		BloggerService bloggerService = applicationContext.getBean(BloggerService.class);
+		//获取友情链接service
+		LinkService linkService = applicationContext.getBean(LinkService.class);
+		//获取博客service
+		BlogService blogService = applicationContext.getBean(BlogService.class);
+		//获取博客信息
 		List<BlogType> blogTypeList = blogTypeService.getBlogTypeData();
 		application.setAttribute("blogTypeList", blogTypeList);
+		//获取博主信息
+		Blogger blogger = bloggerService.getBloggerData();
+		//隐藏密码
+		blogger.setPassword(null);
+		application.setAttribute("blogger",blogger);
+		//获取友情链接信息
+		List<Link> linkList = linkService.getTotalData();
+		application.setAttribute("linkList",linkList);
+		//application.setAttribute("blogList",blogService);
 
 	}
 

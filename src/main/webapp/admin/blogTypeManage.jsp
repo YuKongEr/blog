@@ -46,11 +46,15 @@
         //在url中添加id 后台就能识别是更新操作
         url = "${blog}/admin/blogType/save.do?id=" + row.id;
     }
-
+    /**
+     * 添加或者修改博客类别
+     */
     function saveBlogType() {
         $("#fm").form("submit",{
             url: url,
             onSubmit: function() {
+                $('#typeName').attr('required',true);
+                $('#orderNum').attr('required',true);
                 return $(this).form("validate");
             }, //进行验证，通过才让提交
             success: function(result) {
@@ -98,7 +102,7 @@
                 $.post("${blog}/admin/blogType/delete.do",
                     {ids: ids}, function(result){
                         if(result.exist) {
-                            $.messager.alert("系统提示", result.exist);
+                            $.messager.alert("系统提示", '该类别下有博客，不能删除!');
                         } else if(result.success) {
                             $.messager.alert("系统提示", "数据删除成功！");
                             $("#dg").datagrid("reload");

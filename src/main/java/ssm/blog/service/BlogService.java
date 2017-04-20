@@ -7,17 +7,32 @@ import ssm.blog.entity.Blog;
 import ssm.blog.entity.PageBean;
 
 /**
- * @Description ²©¿ÍService½Ó¿Ú
  * @author xp
- *
+ * @Description åšå®¢Serviceæ¥å£
  */
 public interface BlogService {
 
 
-	// ·ÖÒ³²éÑ¯²©¿Í
-	public PageBean<Blog> listBlog(String title, PageBean<Blog> pageBean);
+    // åˆ†é¡µæŸ¥è¯¢åšå®¢
+    public List<Blog> listBlog(Map<String,Object> map);
 
+    // åˆ†é¡µæŸ¥è¯¢åšå®¢
+    public PageBean<Blog> listBlog(String title,PageBean<Blog> pageBean);
 
-	// ¸ù¾İ²©¿ÍÀàĞÍµÄid²éÑ¯¸ÃÀàĞÍÏÂµÄ²©¿ÍÊıÁ¿
-	public Integer getBlogByTypeId(Integer typeId);
+    // æ ¹æ®åšå®¢ç±»å‹çš„idæŸ¥è¯¢è¯¥ç±»å‹ä¸‹çš„åšå®¢æ•°é‡
+    public Integer getBlogByTypeId(Integer typeId);
+
+    //æ·»åŠ åšå®¢
+    public Integer saveBlog(Blog blog);
+
+    //æ›´æ–°åšå®¢
+    public Integer updateBlog(Blog blog);
+
+    //é€šè¿‡idåˆ é™¤åšå®¢
+    public Integer deleteBlog(Integer id);
+
+    //é€šè¿‡idè·å–åšå®¢
+    public Blog getById(Integer id);
+
+    long getTotal(Map<String, Object> map);
 }

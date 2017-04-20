@@ -29,4 +29,5 @@ public interface BlogTypeService {
     public Integer deleteBlogType(Integer id);
 
     public List<BlogType> getBlogTypeData();
+
 }

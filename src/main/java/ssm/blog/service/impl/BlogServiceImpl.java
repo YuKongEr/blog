@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import com.oracle.javafx.jmx.SGMXBean;
 import org.springframework.stereotype.Service;
 
 import ssm.blog.dao.BlogDao;
@@ -15,7 +14,7 @@ import ssm.blog.entity.PageBean;
 import ssm.blog.service.BlogService;
 
 /**
- * @Description ²©¿ÍServiceÊµÏÖÀà
+ * @Description åšå®¢Serviceå®ç°ç±»
  * @author xp
  *
  */
@@ -24,25 +23,54 @@ public class BlogServiceImpl implements BlogService {
 
 	@Resource
 	private BlogDao blogDao;
-	
+
 
 
 	public PageBean<Blog> listBlog(String title, PageBean<Blog> pageBean) {
 		Map<String,Object> map = new HashMap<String,Object>();
-		//ÉèÖÃ²éÑ¯Ìõ¼ş
+		//è®¾ç½®æŸ¥è¯¢æ¡ä»¶
 		map.put("title",title);
+		//æ€»è®°å½•æ”¾å…¥pageBean
+		pageBean.setTotal(blogDao.getTotal(map));
 		map.put("start",pageBean.getStart());
 		map.put("end",pageBean.getEnd());
-		//°Ñ·ÖÒ³½á¹û·ÅÈëpageBean
+		//æŠŠåˆ†é¡µç»“æœæ”¾å…¥pageBean
 		pageBean.setResult(blogDao.listBlog(map));
-		//×Ü¼ÇÂ¼·ÅÈëpageBean
-		pageBean.setTotal(blogDao.getTotal(title));
 		return pageBean;
 	}
 
 
+	public List<Blog> listBlog(Map<String,Object> map) {
+		return blogDao.listBlog(map);
+	}
+
 	public Integer getBlogByTypeId(Integer typeId) {
 		return blogDao.getBlogByTypeId(typeId);
+	}
+
+	@Override
+	public Integer saveBlog(Blog blog) {
+		return blogDao.saveBlog(blog);
+	}
+
+	@Override
+	public Integer updateBlog(Blog blog) {
+		return blogDao.updateBlog(blog);
+	}
+
+	@Override
+	public Integer deleteBlog(Integer id) {
+		return blogDao.deleteBlog(id);
+	}
+
+	@Override
+	public Blog getById(Integer id) {
+		return blogDao.getById(id);
+	}
+
+	@Override
+	public long getTotal(Map<String, Object> map) {
+		return blogDao.getTotal(map);
 	}
 
 }

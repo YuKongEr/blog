@@ -1,6 +1,7 @@
 package ssm.blog.dao;
 
 import org.springframework.stereotype.Repository;
+import ssm.blog.entity.Blog;
 import ssm.blog.entity.Blogger;
 
 /**
@@ -15,5 +16,19 @@ public interface BloggerDao {
      * @return
      */
     Blogger getBloggerData();
+
+    /**
+     * 通过用户名查询博主信息
+     * @param username
+     * @return
+     */
+    Blogger getBloggerByName(String username);
+
+    /**
+     * 更新博主信息
+     * @param blogger
+     * @return
+     */
+    Integer updateBlogger(Blogger blogger);
 
 }
