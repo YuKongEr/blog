@@ -22,12 +22,16 @@ import ssm.blog.service.BloggerService;
 import ssm.blog.service.LinkService;
 
 @Component
+/**
+ * @Author xp
+ * @Description 监听程序初始化
+ * @Date 2017/4/23 21:48
+ */
 public class InitBloggerData implements ServletContextListener, ApplicationContextAware {
 
 	private static ApplicationContext applicationContext;
 	
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println(applicationContext);
 		//先获取servlet上下文
 		ServletContext application = sce.getServletContext();
 		//同上，获取博客类别信息service

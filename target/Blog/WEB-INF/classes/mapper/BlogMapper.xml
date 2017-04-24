@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             </if>
         </where>
         ORDER BY releaseDate DESC
-        <if test="start!=null and pageSize!=null">
+        <if test="start!=null and end!=null">
             limit #{start},#{end}
         </if>
 	</select>
@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from t_blog where type_id=#{typeId}
 	</select>
 
-	<insert id="saveBlog" parameterType="Blog">
+	<insert id="saveBlog" parameterType="Blog" keyProperty="id" useGeneratedKeys="true">
 		insert into t_blog VALUES (NULL ,#{title},#{summary},now(),0,0,#{content},#{keyWord},#{blogType.id})
 	</insert>
 
@@ -98,5 +98,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="getById" parameterType="java.lang.Integer" resultMap="BlogResult">
         SELECT * from t_blog where id=#{id}
+    </select>
+
+    <select id="getPrevBlog" parameterType="Integer" resultMap="BlogResult">
+        SELECT * FROM t_blog WHERE id&lt;#{id} ORDER BY id DESC LIMIT 1
+    </select>
+
+    <select id="getNextBlog" parameterType="Integer" resultMap="BlogResult">
+        SELECT * FROM t_blog WHERE id&gt;#{id} ORDER BY id ASC LIMIT 1
     </select>
 </mapper> 

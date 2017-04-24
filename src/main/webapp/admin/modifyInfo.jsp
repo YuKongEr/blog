@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>修改人信息</title>
-    <%@include file="../common/head.jspf"%>
+    <%@include file="./common/head.jspf"%>
     <script type="text/javascript" charset="utf-8"
             src="${blog}/static/ueditor1_4_3_3/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8"

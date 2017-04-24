@@ -19,7 +19,7 @@ public class CommentServiceImpl implements CommentService {
     @Resource
     private CommentDao commentDao;
 
-    @Override
+
     public PageBean<Comment> listByPage(PageBean<Comment> pageBean) {
         pageBean.getMap().put("start",pageBean.getStart());
         pageBean.getMap().put("end",pageBean.getEnd());
@@ -28,33 +28,37 @@ public class CommentServiceImpl implements CommentService {
         return pageBean;
     }
 
-    @Override
+
     public Long getTotal(Map<String, Object> map) {
         return commentDao.getTotal(map);
     }
 
-    @Override
+
     public Comment getById(Integer id) {
         return commentDao.getById(id);
     }
 
-    @Override
+
     public Integer saveComment(Comment comment) {
         return commentDao.saveComment(comment);
     }
 
-    @Override
+
     public Integer deleteComment(Integer id) {
         return commentDao.deleteComment(id);
     }
 
-    @Override
+
     public Integer updateComment(Comment comment) {
         return commentDao.updateComment(comment);
     }
 
-    @Override
+
     public Long deleteCommentByBlogId(Integer blogId) {
         return commentDao.deleteCommentByBlogId(blogId);
+    }
+
+    public List<Comment> getCommentData(Map<String, Object> map) {
+        return commentDao.listByPage(map);
     }
 }

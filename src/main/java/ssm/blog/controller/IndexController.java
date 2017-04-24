@@ -28,7 +28,6 @@ import ssm.blog.util.StringUtil;
  *
  */
 @Controller
-@RequestMapping("/index")
 public class IndexController {
 
     @Resource

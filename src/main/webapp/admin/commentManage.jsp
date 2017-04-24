@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>评论管理</title>
-    <%@include file="../common/head.jspf"%>
+    <%@include file="./common/head.jspf"%>
     <script>
         /**
          * 格式化博客标题

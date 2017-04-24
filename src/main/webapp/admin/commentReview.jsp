@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>评论审核</title>
-    <%@include file="../common/head.jspf"%>
+    <%@include file="./common/head.jspf"%>
     <script>
 
         function formatBlogTile(val,row) {

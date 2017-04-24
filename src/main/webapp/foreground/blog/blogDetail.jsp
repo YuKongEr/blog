@@ -78,7 +78,7 @@
 		<br><br>
 		<div class="xian" style="clear:both; margin:0 auto; border-top:1px solid #ddd"></div>
 		<div style="line-height:3; background-color: #F8F8FF">
-			<font style="color:#8B2323">作者：倪升武&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊重博主原创文章，转载请注明文章出于此处。</font>
+			<font style="color:#8B2323">作者：熊平&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊重博主原创文章，转载请注明文章出于此处。</font>
 		</div>
 		<div class="xian" style="margin:0px auto; border-top:1px solid #ddd"></div>
 		<div class="blog_content">${blog.content }</div>
@@ -143,9 +143,9 @@
 		</div>
 		<div class="verCode">
 			验证码：<input type="text" value="" name="imageCode" id="imageCode"
-				size="10" onkeydown="if(event.keyCode==13)form1.submit()" />&nbsp;
+				size="10" onkeydown="if(event.keyCode==13) form1.submit()" />&nbsp;
 				<img onclick="javascript:loadimage();" title="换一张试试" name="randImage"
-				id="randImage" src="/image.jsp" width="60" height="20" border="1"
+				id="randImage" src="${pageContext.request.contextPath}/image.jsp" width="60" height="20" border="1"
 				align="absmiddle">
 		</div>
 		<div class="publishButton">

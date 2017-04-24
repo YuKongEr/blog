@@ -6,7 +6,7 @@
 <head>
 <title>写博客页面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@include file="../common/head.jspf"%>
+<%@include file="./common/head.jspf"%>
 
 <script type="text/javascript" charset="utf-8"
 	src="${blog}/static/ueditor1_4_3_3/ueditor.config.js"></script>

@@ -60,4 +60,11 @@ public interface CommentService {
      * @return
      */
     public Long deleteCommentByBlogId(Integer blogId);
+
+    /**
+     * 查询所有评论消息
+     * @param map
+     * @return
+     */
+    public List<Comment> getCommentData(Map<String,Object> map);
 }

@@ -6,7 +6,7 @@
 <head>
 <title>博客管理页面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@include file="../common/head.jspf"%>
+<%@include file="./common/head.jspf"%>
 <script type="text/javascript">
     /**
 	 * 格式化博客标题 使其变成超链接
@@ -109,9 +109,9 @@
 		</tr>
 	</thead>
 </table>
-<div id="tb" style="padding:5px;height:auto">
+<div id="tb">
 	<div>
-		标题<input type="text" id="s_title" size="20"  onkeydown="if(event.keyCode==13) searchBlog()">
+		&nbsp;标题&nbsp;<input type="text" id="s_title" size="20" onkeydown="if(event.keyCode==13) searchBlog()">
 		<a href="javascript:searchBlog()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		<a href="javascript:deleteBlog()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
 		<a href="javascript:openBlogModifyTab()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>		

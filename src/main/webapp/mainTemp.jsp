@@ -39,10 +39,10 @@
 		</div>
 				
 		<div class="row">		  	  
-			  <div class="col-md-9">
-				  <jsp:include page="/foreground/blog/blogList.jsp"/>
+			  <div class="col-xs-9">
+				  <jsp:include page="${commonPage}"/>
 			  </div>	
-			  <div class="col-md-3">		  	
+			  <div class="col-xs-3">
 				  <jsp:include page="/foreground/blog/rightList.jsp"/>		  	
 			  </div>		  
 		</div>

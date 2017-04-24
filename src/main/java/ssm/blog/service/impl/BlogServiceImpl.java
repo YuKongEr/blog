@@ -48,29 +48,33 @@ public class BlogServiceImpl implements BlogService {
 		return blogDao.getBlogByTypeId(typeId);
 	}
 
-	@Override
 	public Integer saveBlog(Blog blog) {
 		return blogDao.saveBlog(blog);
 	}
 
-	@Override
 	public Integer updateBlog(Blog blog) {
 		return blogDao.updateBlog(blog);
 	}
 
-	@Override
 	public Integer deleteBlog(Integer id) {
 		return blogDao.deleteBlog(id);
 	}
 
-	@Override
 	public Blog getById(Integer id) {
 		return blogDao.getById(id);
 	}
 
-	@Override
 	public long getTotal(Map<String, Object> map) {
 		return blogDao.getTotal(map);
+	}
+
+	public Blog getPrevBlog(Integer id) {
+		return blogDao.getPrevBlog(id);
+	}
+
+
+	public Blog getNextBlog(Integer id) {
+		return blogDao.getNextBlog(id);
 	}
 
 }

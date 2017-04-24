@@ -35,4 +35,5 @@ public class DateUtil {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
         return sdf.format(date);
     }
+
 }

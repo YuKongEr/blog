@@ -46,7 +46,6 @@ public class MyRealm extends AuthorizingRealm{
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String username = (String) authenticationToken.getPrincipal(); //获取用户名
         Blogger blogger = bloggerService.getBloggerByName(username);   //重数据库查询用户信息
-        System.out.println(blogger.getPassword());
         if (blogger != null) {
             SecurityUtils.getSubject().getSession().setAttribute("currentUser", blogger);//把当前用户存到session中
             AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(

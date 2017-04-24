@@ -32,4 +32,17 @@ public interface BlogDao {
 
 	//通过id获取博客
 	public Blog getById(Integer id);
+
+	/**
+	 * 获取上一篇博客
+	 * @param id
+	 * @return
+	 */
+	Blog getPrevBlog(Integer id);
+	/**
+	 * 获取下一篇博客
+	 * @param id
+	 * @return
+	 */
+	Blog getNextBlog(Integer id);
 }

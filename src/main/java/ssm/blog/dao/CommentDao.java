@@ -70,4 +70,6 @@ public interface CommentDao {
      * @return
      */
     public Long deleteCommentByBlogId(Integer blogId);
+
+
 }

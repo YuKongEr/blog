@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>个人博客后台管理</title>
-    <%@include file="../common/head.jspf" %>
+    <%@include file="./common/head.jspf" %>
     <style type="text/css">
         body {
             font-family: microsoft yahei;

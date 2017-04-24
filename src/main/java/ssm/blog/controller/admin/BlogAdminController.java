@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ssm.blog.entity.Blog;
 import ssm.blog.entity.PageBean;
+import ssm.blog.lucene.BlogIndex;
 import ssm.blog.service.BlogService;
 import ssm.blog.service.CommentService;
 import ssm.blog.util.ResponseUtil;
@@ -31,7 +32,8 @@ public class BlogAdminController {
     private BlogService blogService;
     @Resource
     private CommentService commentService;
-
+    @Resource
+    private BlogIndex blogIndex;
     //后台分页查询博客信息
     @RequestMapping("/listBlog")
     public String listBlog(
@@ -70,9 +72,13 @@ public class BlogAdminController {
         if(blog.getId()!=null){
             //更新操作
             resultTotal = blogService.updateBlog(blog);
+            //更新索引
+            blogIndex.updateIndex(blog);
         }else{
             //新增操作
             resultTotal = blogService.saveBlog(blog);
+            //添加索引
+            blogIndex.addIndex(blog);
         }
         JSONObject result = new JSONObject();
         if(resultTotal > 0) {

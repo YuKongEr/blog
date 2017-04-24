@@ -43,11 +43,10 @@ public class BloggerAdminController {
     //更新博主信息
     @RequestMapping(value = "save",method = RequestMethod.POST)
     public String saveBlogger(@RequestParam(value = "imageFile",required = false) MultipartFile imageFile, Blogger blogger,
-                              HttpServletResponse response,
-                              HttpServletRequest request) throws Exception {
+                              HttpServletResponse response) throws Exception {
         //判断是否有上图片 有就更新
         if(!imageFile.isEmpty()){
-            String filePath = PathUtil.getRootPath(request); //获取服务器根路径
+            String filePath = PathUtil.getRootPath(); //获取服务器根路径
             String imageName = DateUtil.getCurrentDateStr() + "." + imageFile.getOriginalFilename().split("\\.")[1];
             imageFile.transferTo(new File(filePath + "/src/main/webapp/static/userImages/" + imageName));
             blogger.setImageName(imageName);

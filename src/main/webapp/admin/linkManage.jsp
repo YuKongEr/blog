@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <title>友情链接管理</title>
-    <%@include file="../common/head.jspf" %>
+    <%@include file="./common/head.jspf" %>
 </head>
 <script type="text/javascript">
 

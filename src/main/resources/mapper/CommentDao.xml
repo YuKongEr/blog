@@ -12,15 +12,18 @@
 
     <select id="listByPage" parameterType="java.util.Map" resultMap="CommentResultMap">
         SELECT * from t_comment
-        <trim prefix="where" suffixOverrides="and">
-            <if test="blogId != null">
-                blog_id = #{blogId} and
+        <where>
+            <if test="blogId!=null">
+                and blog_id=#{blogId}
             </if>
-            <if test="state != null">
-                state = #{state}  and
+            <if test="state!=null">
+                and state=#{state}
             </if>
-        </trim>
-        LIMIT #{start},#{end}
+        </where>
+        ORDER BY comment_date DESC
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{end}
+        </if>
     </select>
 
     <select id="getById" parameterType="java.lang.Integer" resultMap="CommentResultMap">

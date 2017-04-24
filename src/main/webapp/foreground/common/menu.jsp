@@ -23,7 +23,7 @@
 	        <li><a class="navbar-brand" href="${pageContext.request.contextPath}/blogger/aboutme.html" onclick="changeClass(this)">关于博主</a></li>
 	        <li><a class="navbar-brand" href="${pageContext.request.contextPath}/blogger/myalbum.html" onclick="changeClass(this)">我的相册</a></li>
 	        <li><a class="navbar-brand" href="${pageContext.request.contextPath}/blogger/resource.html" onclick="changeClass(this)">资源小站</a></li>
-	        <li><a class="navbar-brand" href="http://blog.csdn.net/eson_15" target="blank">我的CSDN</a></li>
+	        <li><a class="navbar-brand" href="http://blog.csdn.net/xp541130126" target="blank">我的CSDN</a></li>
 	      </ul>
 	      <form action="${pageContext.request.contextPath}/blog/search.html" class="navbar-form navbar-right" role="search" method="post" onsubmit="return checkData()">
 	        <div class="form-group">
