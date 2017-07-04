@@ -49,7 +49,7 @@ public class BloggerController {
         }
     }
 
-    @RequestMapping("/myalbum")
+    @RequestMapping("/aboutme")
     public ModelAndView abouotMe() {
         ModelAndView modelAndView = new ModelAndView();
         Blogger blogger = bloggerService.getBloggerData();
@@ -60,7 +60,7 @@ public class BloggerController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/malbum")
+    @RequestMapping(value = "/myalbum")
     public ModelAndView myAlbum() {
         ModelAndView modelAndView = new ModelAndView();
         //要写一个相册的service获取相册

@@ -14,7 +14,7 @@
 	}
 	
 	function loadimage(){
-		document.getElementById("randImage").src="${pageContext.request.contextPath}/image.jsp?"+Math.random();
+		document.getElementById("randImage").src="${pageContext.request.contextPath}/images.jsp?"+Math.random();
 	}
 	
 	function submitData() {

@@ -9,7 +9,9 @@
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
+      <introspection-schemas>*:db_blog</introspection-schemas>
       <resolve-scope>db_blog:</resolve-scope>
+      <unqualified-resolve-schemas>db_blog:</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>

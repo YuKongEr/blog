@@ -19,7 +19,7 @@ java.awt.image.*,java.util.*,javax.imageio.*"
 	response.setHeader("Cache-Control", "no-cache");
 	response.setDateHeader("Expires", 0);
 	int width = 60, height = 20;
-	BufferedImage image = new BufferedImage(width, height,
+	BufferedImage images = new BufferedImage(width, height,
 			BufferedImage.TYPE_INT_RGB);
 	Graphics g = image.getGraphics();
 	Random random = new Random();
