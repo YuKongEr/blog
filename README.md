@@ -6,6 +6,7 @@
 # 如果有啥宝贵意见请issue 
 # 另外喜欢的话，请大家点个star吧
 
+添加演示截图
 
 ![image](https://github.com/xp541130126/blog/tree/master/src/main/resources/images/Snip20170704_2.png)
 ![image](https://github.com/xp541130126/blog/tree/master/src/main/resources/images/Snip20170704_3.png)
