@@ -8011,7 +8011,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @example
          * ```javascript
          * editor.getActionUrl('config'); //返回 "/ueditor/php/controller.php?action=config"
-         * editor.getActionUrl('image'); //返回 "/ueditor/php/controller.php?action=uplaodimage"
+         * editor.getActionUrl('images'); //返回 "/ueditor/php/controller.php?action=uplaodimage"
          * editor.getActionUrl('scrawl'); //返回 "/ueditor/php/controller.php?action=uplaodscrawl"
          * editor.getActionUrl('imageManager'); //返回 "/ueditor/php/controller.php?action=listimage"
          * ```
@@ -10923,7 +10923,7 @@ UE.plugin.register('background', function () {
     }
 });
 
-// plugins/image.js
+// plugins/images.js
 /**
  * 图片插入、排版插件
  * @file
@@ -15001,11 +15001,11 @@ UE.plugins['list'] = function () {
         var customCss = [];
         for(var p in customStyle){
             if(p == 'dash' || p == 'dot'){
-                customCss.push('li.list-' + customStyle[p] + '{background-image:url(' + liiconpath +customStyle[p]+'.gif)}');
+                customCss.push('li.list-' + customStyle[p] + '{background-images:url(' + liiconpath +customStyle[p]+'.gif)}');
                 customCss.push('ul.custom_'+p+'{list-style:none;}ul.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
             }else{
                 for(var i= 0;i<99;i++){
-                    customCss.push('li.list-' + customStyle[p] + i + '{background-image:url(' + liiconpath + 'list-'+customStyle[p] + i + '.gif)}')
+                    customCss.push('li.list-' + customStyle[p] + i + '{background-images:url(' + liiconpath + 'list-'+customStyle[p] + i + '.gif)}')
                 }
                 customCss.push('ol.custom_'+p+'{list-style:none;}ol.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
             }
@@ -20725,7 +20725,7 @@ UE.plugins['table'] = function () {
         dragButton = doc.createElement("div");
         dragButton.contentEditable = false;
         dragButton.innerHTML = "";
-        dragButton.style.cssText = "width:15px;height:15px;background-image:url(" + editor.options.UEDITOR_HOME_URL + "dialogs/table/dragicon.png);position: absolute;cursor:move;top:" + (pos.y - 15) + "px;left:" + (pos.x) + "px;";
+        dragButton.style.cssText = "width:15px;height:15px;background-images:url(" + editor.options.UEDITOR_HOME_URL + "dialogs/table/dragicon.png);position: absolute;cursor:move;top:" + (pos.y - 15) + "px;left:" + (pos.x) + "px;";
         domUtils.unSelectable(dragButton);
         dragButton.onmouseover = function (evt) {
             dragOver = true;
@@ -21630,7 +21630,7 @@ UE.plugins['table'] = function () {
             'onresizestart':'return false',
             'ondragstart':'return false',
             'onselectstart':'return false',
-            style:"background-color:blue;position:absolute;padding:0;margin:0;background-image:none;border:0px none;opacity:0;filter:alpha(opacity=0)"
+            style:"background-color:blue;position:absolute;padding:0;margin:0;background-images:none;border:0px none;opacity:0;filter:alpha(opacity=0)"
         });
         editor.body.appendChild(dragLine);
     }
@@ -21849,7 +21849,7 @@ UE.plugins['tablesort'] = function () {
         //添加表格可排序的样式
         utils.cssRule('tablesort',
             'table.sortEnabled tr.firstRow th,table.sortEnabled tr.firstRow td{padding-right:20px;background-repeat: no-repeat;background-position: center right;' +
-                '   background-image:url(' + me.options.themePath + me.options.theme + '/images/sortable.png);}',
+                '   background-images:url(' + me.options.themePath + me.options.theme + '/images/sortable.png);}',
             me.document);
 
         //做单元格合并操作时,清除可排序标识
@@ -23819,7 +23819,7 @@ UE.plugin.register('autoupload', function (){
             params = utils.serializeParam(me.queryCommandValue('serverparam')) || '',
             url = utils.formatUrl(actionUrl + (actionUrl.indexOf('?') == -1 ? '?':'&') + params);
 
-        fd.append(fieldName, file, file.name || ('blob.' + file.type.substr('image/'.length)));
+        fd.append(fieldName, file, file.name || ('blob.' + file.type.substr('images/'.length)));
         fd.append('type', 'ajax');
         xhr.open("post", url, true);
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
@@ -24483,7 +24483,7 @@ UE.plugin.register('simpleupload', function (){
 
             wrapper.innerHTML = '<form id="edui_form_' + timestrap + '" target="edui_iframe_' + timestrap + '" method="POST" enctype="multipart/form-data" action="' + me.getOpt('serverUrl') + '" ' +
             'style="' + btnStyle + '">' +
-            '<input id="edui_input_' + timestrap + '" type="file" accept="image/*" name="' + me.options.imageFieldName + '" ' +
+            '<input id="edui_input_' + timestrap + '" type="file" accept="images/*" name="' + me.options.imageFieldName + '" ' +
             'style="' + btnStyle + '">' +
             '</form>' +
             '<iframe id="edui_iframe_' + timestrap + '" name="edui_iframe_' + timestrap + '" style="display:none;width:0;height:0;border:0;margin:0;padding:0;position:absolute;"></iframe>';
@@ -27801,7 +27801,7 @@ UE.ui = baidu.editor.ui = {};
 
     var iframeUrlMap = {
         'anchor':'~/dialogs/anchor/anchor.html',
-        'insertimage':'~/dialogs/image/image.html',
+        'insertimage':'~/dialogs/images/images.html',
         'link':'~/dialogs/link/link.html',
         'spechars':'~/dialogs/spechars/spechars.html',
         'searchreplace':'~/dialogs/searchreplace/searchreplace.html',

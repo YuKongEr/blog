@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ssm.blog.dao.CommentDao">
+    <resultMap id="CommentResultMap" type="Comment">
+        <id property="id" column="id"/>
+        <result property="userIp" column="user_ip"/>
+        <result property="content" column="content"/>
+        <result property="commentDate" column="comment_date"/>
+        <result property="state" column="state"/>
+        <association property="blog" column="blog_id" select="ssm.blog.dao.BlogDao.getById"/>
+    </resultMap>
+
+    <select id="listByPage" parameterType="java.util.Map" resultMap="CommentResultMap">
+        SELECT * from t_comment
+        <where>
+            <if test="blogId!=null">
+                and blog_id=#{blogId}
+            </if>
+            <if test="state!=null">
+                and state=#{state}
+            </if>
+        </where>
+        ORDER BY comment_date DESC
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{end}
+        </if>
+    </select>
+
+    <select id="getById" parameterType="java.lang.Integer" resultMap="CommentResultMap">
+        select * from t_comment
+        where id=#{id}
+    </select>
+
+    <select id="getTotal" parameterType="java.util.Map" resultType="java.lang.Long">
+        SELECT count(*) from t_comment
+        <where>
+            <if test="state != null">
+                state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <insert id="saveComment">
+        insert into t_comment VALUES (null,#{userIp},#{content},now(),0,#{blog.id})
+    </insert>
+
+    <delete id="deleteComment" parameterType="java.lang.Integer">
+        DELETE FROM t_comment
+        where id=#{id}
+    </delete>
+    
+    <update id="updateComment" parameterType="Comment">
+        update t_comment
+        <set>
+            <if test="state != null">
+                state = #{state}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="queryByBlogId" resultMap="CommentResultMap" parameterType="java.lang.Integer">
+        SELECT * FROM t_comment
+        where blog_id=#{blogId}
+    </select>
+    <delete id="deleteCommentByBlogId" parameterType="java.lang.Integer" >
+        delete from t_comment
+        where blog_id=#{blogId}
+    </delete>
+</mapper>

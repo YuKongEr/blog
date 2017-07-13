@@ -67,6 +67,7 @@
 	<script type="text/javascript">
 		var ue = UE.getEditor('editor');
 		ue.addListener("ready",function () {
+		    //百度UE自定义ajax请求
             UE.ajax.request("${blog}/admin/blog/get.do",{
                 method:"post",
                 async:true,
@@ -82,6 +83,7 @@
             })
         })
 	</script>
+
     <script type="text/javascript">
         function submitData() {
             var title = $("#title").val();

@@ -3754,7 +3754,7 @@ vjs.Player.prototype.loop = function(value){
 vjs.Player.prototype.poster_;
 
 /**
- * get or set the poster image source url
+ * get or set the poster images source url
  *
  * ##### EXAMPLE:
  *
@@ -3764,7 +3764,7 @@ vjs.Player.prototype.poster_;
  *     // setting
  *     myPlayer.poster('http://example.com/myImage.jpg');
  *
- * @param  {String=} [src] Poster image source URL
+ * @param  {String=} [src] Poster images source URL
  * @return {String} poster URL when getting
  * @return {vjs.Player} self when setting
  */

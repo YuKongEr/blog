@@ -68,14 +68,23 @@
 		var ue = UE.getEditor('editor');
 	</script>
 	<script type="text/javascript">
+        /**
+		 * 发布博客
+          */
 		function submitData() {
+		    //获取博客标题
 			var title = $("#title").val();
+            //获取博客类别id
 			var blogTypeId = $("#blogTypeId").combobox("getValue");
+            //获取博客内容 带标记
 			var content = UE.getEditor('editor').getContent();
+            //截取博客前155字符 作为博客简介
 			var summary = UE.getEditor('editor').getContentTxt().substr(0, 155);
+			//博客关键词
 			var keyWord = $("#keyWord").val();
+			//获取博客内容  不带标签 纯文本
 			var contentNoTag = UE.getEditor('editor').getContentTxt();
-
+			//校验
 			if (title == null || title == '') {
 				$.messager.alert("系统提示", "请输入标题！");
 			} else if (blogTypeId == null || blogTypeId == '') {
@@ -83,6 +92,7 @@
 			} else if (content == null || content == '') {
 				$.messager.alert("系统提示", "请编辑博客内容！");
 			} else {
+			    //ajax请求 请求后台写博客接口
 				$.post("${blog}/admin/blog/save.do",
 						{
 							'title' : title,
@@ -101,6 +111,7 @@
 						}, "json");
 			}
 		}
+		//清空功能
 		function clearValues() {
 			$("#title").val("");
 			$("#blogTypeId").combobox("setValue", "");
