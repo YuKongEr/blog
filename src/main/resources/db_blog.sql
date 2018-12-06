@@ -38,3 +38,29 @@ CREATE TABLE `t_blog` (
   KEY `type_id` (`type_id`),
   CONSTRAINT `t_blog_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `t_blogtype` (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+
+
+create table t_blogtype
+(
+  id int auto_increment comment '博客id',
+  type_name varchar(30) null comment '博客类别',
+  order_num int null comment '博客排序',
+  constraint `PRIMARY`
+  primary key (id)
+)
+;
+
+create table t_link
+(
+  id int auto_increment comment '友情链接表id',
+  link_name varchar(100) null comment '友情链接名',
+  link_url varchar(200) null comment '友情链接url',
+  order_num int null comment '链接排序',
+  constraint `PRIMARY`
+  primary key (id)
+)
+;
+
+
+
+
