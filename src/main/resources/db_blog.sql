@@ -39,16 +39,26 @@ CREATE TABLE `t_blog` (
   CONSTRAINT `t_blog_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `t_blogtype` (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
-
-create table t_blogtype
+create table t_comment
 (
-  id int auto_increment comment '博客id',
-  type_name varchar(30) null comment '博客类别',
-  order_num int null comment '博客排序',
+  id int auto_increment comment '评论表id',
+  user_ip varchar(50) null comment '评论者ip',
+  content varchar(1000) null comment '评论内容',
+  comment_date datetime null comment '评论日期',
+  state int null comment '审核状态',
+  blog_id int null comment '外键关联具体博客',
   constraint `PRIMARY`
-  primary key (id)
+  primary key (id),
+  constraint t_comment_ibfk_1
+  foreign key (blog_id) references t_blog (id)
 )
 ;
+
+create index blog_id
+  on t_comment (blog_id)
+;
+
+
 
 create table t_link
 (
